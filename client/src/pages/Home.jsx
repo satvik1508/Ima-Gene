@@ -1,11 +1,11 @@
 import React,{useState,useEffect} from 'react';
 import {Loader,Card,FormField} from '../components';
-import { Form } from 'react-router-dom';
+
 
 
 const RenderCards = ({data,title}) => {
   if(data?.length>0){ 
-  return data.map((post) => <Card key={post._id} {...post} />)
+  return (data.map((post) => <Card key={post._id} {...post} />))
   }
 
   return(
@@ -30,7 +30,7 @@ const Home = () => {
       setLoading(true);
 
       try {
-        const response = await fetch('https://localhost:8080/api/v1/post',{
+        const response = await fetch('https://ima-gene-back.onrender.com/api/v1/post',{
           method: 'GET',
           headers: {
             'Content-Type': 'application/json',
